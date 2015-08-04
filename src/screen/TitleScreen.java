@@ -80,8 +80,16 @@ public class TitleScreen extends Screen {
 	 * @return The next menu item
 	 */
 	private ScreenType getNextMenuItem(ScreenType selectedMenuItem) {
-		return ScreenType.GameScreen;
-		
+		if (selectedMenuItem == ScreenType.GameScreen) {
+			return ScreenType.HighScoreScreen;
+
+		}
+		else if (selectedMenuItem == ScreenType.HighScoreScreen) {
+			return ScreenType.EndGame;
+		}
+		else {return ScreenType.GameScreen;
+		}
+
 	}
 
 	/**
@@ -91,9 +99,15 @@ public class TitleScreen extends Screen {
 	 * @return The previous menu item
 	 */
 	private ScreenType getPreviousMenuItem(ScreenType selectedMenuItem) {
-		return ScreenType.GameScreen;
-		
-	}
+		if(selectedMenuItem == ScreenType.GameScreen){
+			return ScreenType.EndGame;
+		}
+		else if(selectedMenuItem == ScreenType.HighScoreScreen) {
+			return ScreenType.HighScoreScreen;
+		}
+		else {return ScreenType.GameScreen;
+		}
+		}
 
 	/**
 	 * Draws the elements associated with the screen.
